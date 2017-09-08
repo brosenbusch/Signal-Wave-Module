@@ -1,3 +1,5 @@
+const Point = require('./point.js');
+
 let Signal = function(array){
   let numberOfPoints = array.length;
   let points = array;
@@ -10,6 +12,8 @@ let Signal = function(array){
   function getPointArray(){return points;}
 
   function shiftX(value){
-
+    for(a=0; a<numberOfPoints; a++){
+      
+    }
   }
 }
