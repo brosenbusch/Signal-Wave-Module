@@ -12,39 +12,52 @@ let Signal = function(array){
   function getPointArray(){return points;}
 
   function shiftX(value){
-    for(a=0; a<numberOfPoints; a++){
-      let tempx = P1.getX();
-      let tempy = P1.getY();
+    for(var=0; a<numberOfPoints; a++){
+      let tempx = transformedPoints[a].getX();
+      let tempy = transformedPoints[a].getY();
       tempx += value;
-      let tempPoint = new Point(tempx, tempy);
+      transformedPoints[a]= new Point(tempx, tempy);
     }
   }
 
     function shiftY(value){
-      for(a=0; a<numberOfPoints; a++){
-        let tempx = P1.getX();
-        let tempy = P1.getY();
+      for(var=0; a<numberOfPoints; a++){
+        let tempx = transformedPoints[a].getX();
+        let tempy = transformedPoints[a].getY();
         tempy += value;
-        let tempPoint = new Point(tempx, tempy);
-        transformedPoints = 
+        transformedPoints[a]= new Point(tempx, tempy);
+
       }
     }
 
     function stretchX(value){
-      for(a=0; a<numberOfPoints; a++){
-        let tempx = P1.getX();
-        let tempy = P1.getY();
+      for(var a=0; a<numberOfPoints; a++){
+        let tempx = transformedPoints[a].getX();
+        let tempy = transformedPoints[a].getY();
         tempx *= value;
-        let tempPoint = new Point(tempx, tempy);
+        transformedPoints[a]= new Point(tempx, tempy);
       }
     }
 
     function stretchY(value){
-      for(a=0; a<numberOfPoints; a++){
-        let tempx = P1.getX();
-        let tempy = P1.getY();
+      for(var a=0; a<numberOfPoints; a++){
+        let tempx = transformedPoints[a].getX();
+        let tempy = transformedPoints[a].getY();
         tempy *= value;
-        let tempPoint = new Point(tempx, tempy);
+        transformedPoints[a]= new Point(tempx, tempy);
       }
+    }
+
+    outputOf(xvalue){
+      for(let x=0; x<numberOfPoints; x++){
+        if(points.getX()[x] == xvalue){
+          return points.getY();
+        }
+      }
+      console.log("Your x-value does not have a y-value")
+    }
+
+    function calculateSpan(array){
+      //for loop, runs through each point, if x-value is lower, replace temp variable. Then do for max then find difference. Then do for y-value.
     }
 }
