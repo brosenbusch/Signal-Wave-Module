@@ -20,44 +20,71 @@ let Signal = function(array){
     }
   }
 
-    function shiftY(value){
-      for(var=0; a<numberOfPoints; a++){
-        let tempx = transformedPoints[a].getX();
-        let tempy = transformedPoints[a].getY();
-        tempy += value;
-        transformedPoints[a]= new Point(tempx, tempy);
+  function shiftY(value){
+    for(var=0; a<numberOfPoints; a++){
+      let tempx = transformedPoints[a].getX();
+      let tempy = transformedPoints[a].getY();
+      tempy += value;
+      transformedPoints[a]= new Point(tempx, tempy);
 
+    }
+  }
+
+  function stretchX(value){
+    for(var a=0; a<numberOfPoints; a++){
+      let tempx = transformedPoints[a].getX();
+      let tempy = transformedPoints[a].getY();
+      tempx *= value;
+      transformedPoints[a]= new Point(tempx, tempy);
+    }
+  }
+
+  function stretchY(value){
+    for(var a=0; a<numberOfPoints; a++){
+      let tempx = transformedPoints[a].getX();
+      let tempy = transformedPoints[a].getY();
+      tempy *= value;
+      transformedPoints[a]= new Point(tempx, tempy);
+    }
+  }
+
+  outputOf(xvalue){
+    for(let x=0; x<numberOfPoints; x++){
+      if(points.getX()[x] == xvalue){
+        return points.getY();
       }
     }
+    console.log("Your x-value does not have a y-value")
+  }
 
-    function stretchX(value){
-      for(var a=0; a<numberOfPoints; a++){
-        let tempx = transformedPoints[a].getX();
-        let tempy = transformedPoints[a].getY();
-        tempx *= value;
-        transformedPoints[a]= new Point(tempx, tempy);
-      }
-    }
-
-    function stretchY(value){
-      for(var a=0; a<numberOfPoints; a++){
-        let tempx = transformedPoints[a].getX();
-        let tempy = transformedPoints[a].getY();
-        tempy *= value;
-        transformedPoints[a]= new Point(tempx, tempy);
-      }
-    }
-
-    outputOf(xvalue){
-      for(let x=0; x<numberOfPoints; x++){
-        if(points.getX()[x] == xvalue){
-          return points.getY();
+  function calculateSpan(array,coordinate){
+    let min;
+    let max;
+    if(coordinate == "x"){
+      min = points[0].getX();
+      max = points[0].getX();
+      for(var a=1; a<numberOfPoints; a++){
+        if(points[a].getX()<min){
+          min = points[a].getX();
+        }
+        if(points[a].getX()>max){
+          max = points[a].getX();
         }
       }
-      console.log("Your x-value does not have a y-value")
+      return max-min;
     }
-
-    function calculateSpan(array){
-      //for loop, runs through each point, if x-value is lower, replace temp variable. Then do for max then find difference. Then do for y-value.
+    else if(coordinate == "y"){
+      min = points[0].getX();
+      max = points[0].getX();
+      for(var a=1; a<numberOfPoints; a++){
+        if(points[a].getX()<min){
+          min = points[a].getX();
+        }
+        if(points[a].getX()>max){
+          max = points[a].getX();
+        }
+      }
+      return max-min;
     }
+  }
 }
