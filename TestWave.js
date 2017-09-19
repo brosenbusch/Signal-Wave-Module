@@ -21,14 +21,16 @@ function main(){
     console.log("--------");
     testWave.shiftX(10);
     testWave.stretchY(3);
-
-
+    console.log(testWave.getPeriod());
+    console.log(testWave.getRange());
+    console.log(testWave.outputOf(25));
 
     let secondWave = new Wave(testWave.transform());
 
     secondWave.transform().forEach(function(point){
         point.print();
     });
+
 
 }
 

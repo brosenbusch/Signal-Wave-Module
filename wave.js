@@ -53,14 +53,8 @@ let Wave = function(array){
   }
 
   function outputOf(xvalue){
-    for(let x=0; x<numberOfPoints; x++){
-      if(points.getX()[x] == xvalue){
-        return points.getY();
-      }
-      else{
-        console.log("Your x-value does not have a y-value");
-      }
-    }
+    let position = xvalue % period;
+    return points [position].getY();
   }
 
   function calculateSpan(array,coordinate){
@@ -80,19 +74,19 @@ let Wave = function(array){
       return max-min;
     }
     else if(coordinate == "y"){
-      min = points[0].getX();
-      max = points[0].getX();
+      min = points[0].getY();
+      max = points[0].getY();
       for(var a=1; a<numberOfPoints; a++){
-        if(points[a].getX()<min){
-          min = points[a].getX();
+        if(points[a].getY()<min){
+          min = points[a].getY();
         }
-        if(points[a].getX()>max){
-          max = points[a].getX();
+        if(points[a].getY()>max){
+          max = points[a].getY();
         }
       }
       return max-min;
     }
   }
-  return {getRange,getPeriod,getPointArray,shiftX,shiftY,stretchX,stretchY,transform,outputOf}
+  return {getRange,getPeriod,getPointArray,shiftX,shiftY,stretchX,stretchY,transform,outputOf};
 }
 module.exports = Wave;
